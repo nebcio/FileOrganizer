@@ -9,11 +9,28 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    contentsegment.cpp \
+    grouppanel.cpp \
+    leftpanel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    optionspanel.cpp \
+    sortpanel.cpp \
+    topbar.cpp
 
 HEADERS += \
-    mainwindow.h
+    contentsegment.h \
+    grouppanel.h \
+    leftpanel.h \
+    mainwindow.h \
+    optionspanel.h \
+    sortpanel.h \
+    topbar.h \
+    ui_contentsegment.h \
+    ui_leftpanel.h \
+    ui_mainwindow.h \
+    ui_optionspanel.h \
+    ui_topbar.h
 
 TRANSLATIONS += \
     FileOrganizer_pl_PL.ts

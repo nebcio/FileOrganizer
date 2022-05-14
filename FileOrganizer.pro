@@ -27,9 +27,11 @@ HEADERS += \
     sortpanel.h \
     topbar.h \
     ui_contentsegment.h \
+    ui_grouppanel.h \
     ui_leftpanel.h \
     ui_mainwindow.h \
     ui_optionspanel.h \
+    ui_sortpanel.h \
     ui_topbar.h
 
 TRANSLATIONS += \
@@ -41,3 +43,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    rss.qrc

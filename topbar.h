@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QMouseEvent>
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class TopBar; }
 QT_END_NAMESPACE
@@ -24,12 +23,13 @@ private:
 
 signals:
     void signalExit();
-    void signalMin();
-    void signalUpdateConfig();
+    void signalShowMinimized();
+    void signalShowMaximized();
 
 protected slots:
     void onButtonExitClicked();
     void onButtonMinClicked(); // minimized
+    void onButtonMaxClicked();
 
 };
 

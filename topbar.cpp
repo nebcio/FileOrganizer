@@ -3,6 +3,9 @@
 
 TopBar::TopBar(QWidget *parent) : QWidget(parent), ui(new Ui::TopBar) {
     ui->setupUi(this);
+    connect(ui->m_exit_button, &QPushButton::clicked, this, &TopBar::onButtonExitClicked);
+    connect(ui->m_min_button, &QPushButton::clicked, this, &TopBar::onButtonMinClicked);
+    connect(ui->m_full_button, &QPushButton::clicked, this, &TopBar::onButtonMaxClicked);
 }
 
 void TopBar::onButtonExitClicked() {
@@ -10,8 +13,13 @@ void TopBar::onButtonExitClicked() {
 }
 
 void TopBar::onButtonMinClicked() {
-    // emit signalShowMinimized();
+    emit signalShowMinimized();
 }
+
+void TopBar::onButtonMaxClicked() {
+    emit signalShowMaximized();
+}
+
 
 void TopBar::mousePressEvent(QMouseEvent *event) {
     if(event->button() == Qt::LeftButton){

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="b_triangle.png">img/blue_triangleFO.png</file>
+        <file alias="max.png">img/maximize_sqFO.png</file>
+        <file alias="min.png">img/minimize_sqFO.png</file>
+        <file alias="y_triangle.png">img/yellow_tringleFO.png</file>
+    </qresource>
+</RCC>

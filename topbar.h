@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMouseEvent>
+#include "mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TopBar; }
@@ -13,10 +14,16 @@ class TopBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TopBar(QWidget *parent = nullptr);
+    explicit TopBar(MainWindow *parent = nullptr);
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+    QPoint m_restorePos;    // maximize and minimize variables;
+    QSize m_restoreSize;
+
+    bool parent_moving;
+    QPoint m_startMovePos;
+    MainWindow *m_parent;
 
 private:
     Ui::TopBar *ui;

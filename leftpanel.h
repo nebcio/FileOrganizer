@@ -16,7 +16,12 @@ public:
 
 private:
     Ui::LeftPanel *ui;
+    void showGroupPanel();
+    void showSortPanel();
+
 signals:
+    void signalShowGroupPanel(QPoint pos);
+    void signalShowSortPanel(QPoint pos);
 
 };
 

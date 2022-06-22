@@ -1,7 +1,7 @@
 #include "topbar.h"
 #include "ui_topbar.h"
 
-TopBar::TopBar(QWidget *parent) : QWidget(parent), ui(new Ui::TopBar) {
+TopBar::TopBar(MainWindow *parent) : /*QWidget(parent),*/ m_parent(parent), ui(new Ui::TopBar) {
     ui->setupUi(this);
     connect(ui->m_exit_button, &QPushButton::clicked, this, &TopBar::onButtonExitClicked);
     connect(ui->m_min_button, &QPushButton::clicked, this, &TopBar::onButtonMinClicked);
@@ -20,16 +20,17 @@ void TopBar::onButtonMaxClicked() {
     emit signalShowMaximized();
 }
 
-
 void TopBar::mousePressEvent(QMouseEvent *event) {
     if(event->button() == Qt::LeftButton){
-        //parent_moving = true;
-        //m_startMovePos = event->pos();
+        if ((event->pos().x() > 10 && event->pos().y() > 10) ||
+            (event->pos().x() < m_parent->width() - 10 && event->pos().y() > 10)) {
+                parent_moving = true;
+                m_startMovePos = event->pos();
+        }
     }
 }
 void TopBar::mouseMoveEvent(QMouseEvent *event) {
-    //if (parent_moving) m_parent->move(event->globalPos() - m_startMovePos);
-
+    if (parent_moving) m_parent->move(event->globalPos() - m_startMovePos);
     /*if (parent_moving && m_parent->pos().x() > QGuiApplication::primaryScreen()->geometry().width() - m_parent->width()) {
         m_parent->move(QGuiApplication::primaryScreen()->geometry().width() - m_parent->width(), m_parent->pos().y());
     }
@@ -45,5 +46,5 @@ void TopBar::mouseMoveEvent(QMouseEvent *event) {
     }*/
 }
 void TopBar::mouseReleaseEvent(QMouseEvent *event) {
-    //parent_moving = false;
+    parent_moving = false;
 }

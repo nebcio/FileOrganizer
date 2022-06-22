@@ -16,8 +16,6 @@ public:
 private:
     Ui::GroupPanel *ui;
 
-signals:
-
 };
 
 #endif // GROUPPANEL_H

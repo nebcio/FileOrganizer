@@ -16,8 +16,6 @@ public:
 private:
     Ui::SortPanel *ui;
 
-signals:
-
 };
 
 #endif // SORTPANEL_H
